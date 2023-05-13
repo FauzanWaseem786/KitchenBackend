@@ -17,6 +17,11 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://kitchenf.onrender.com/')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
+})
 app.use(express.json());
 var fs = require('fs-extra');
 
